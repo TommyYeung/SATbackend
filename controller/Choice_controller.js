@@ -79,8 +79,11 @@ const getOneChoice = async (req, res) => {
 
 const updateOneChoice = async (req, res) => {
   let _id = req.params.id
+//it makes it use id (choice id) instead of the id in the url (question id)
+  const { id } = req.body
 
-  let info = await Choice.update(req.body, { where: { id: _id } })
+  let info = await Choice.update(req.body, { where: { id: id } })
+  // let info = await Choice.update(req.body, { where: { id: _id } })
   res.status(200).send(info)
 
 }

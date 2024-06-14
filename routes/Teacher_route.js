@@ -4,6 +4,7 @@ const router = require('express').Router()
 
 router.post('/addTeacher',teacherController.addTeacher)
 
+router.get('/teacherAllQuestionSet/:id',teacherController.getAllQuestionSetInThisTeacherId)
 
 
 

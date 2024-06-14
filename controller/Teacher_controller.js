@@ -2,6 +2,9 @@ const db = require('../models')
 
 // create main model
 const Teacher = db.Teacher
+const QuestionSet = db.QuestionSet
+
+
 
 //main work
 
@@ -59,7 +62,20 @@ const deleteTeacher = async (req,res)=>{
 
 }
 
+//6. get all question set by teacher id
 
+const getAllQuestionSetInThisTeacherId = async(req,res)=>{
+    let _id = req.params.id
+    let questionSetInTeacherId = await QuestionSet.findAll({ where: { TeacherId: _id } })
+
+    if (!questionSetInTeacherId) {
+      return res.status(404).send({ message: 'No questions found for this Question Set' });
+    }
+  
+    res.status(200).send(questionSetInTeacherId)
+    console.log(questionSetInTeacherId)
+  
+}
 
 
 
@@ -68,5 +84,6 @@ module.exports={
     getAllTeacher,
     getOneTeacher,
     updateOneTeacher,
-    deleteTeacher
+    deleteTeacher,
+    getAllQuestionSetInThisTeacherId,
 }
