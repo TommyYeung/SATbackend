@@ -29,6 +29,7 @@ const addQuestion = async(req,res)=>{
         const qType = req.body.qType;
         const correctAnswer = req.body.correctAnswer;
         const QuestionSetId = req.body.QuestionSetId;
+        const qNo = req.body.qNo;
     
         if (!QuestionSetId) {
           return res.status(400).send({ message: 'QuestionSetId is required' });
@@ -42,6 +43,7 @@ const addQuestion = async(req,res)=>{
             qType:qType,
             correctAnswer:correctAnswer,
             QuestionSetId:QuestionSetId,
+            qNo:qNo,
           }, 
         );
     

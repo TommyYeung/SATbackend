@@ -5,11 +5,11 @@ module.exports = (sequelize, DataTypes) => {
   const Sequelize = DataTypes;
 
   const Question = sequelize.define('Question', {
-    // qNo: {
-    //   type: Sequelize.INTEGER,
+    qNo: {
+      type: Sequelize.INTEGER,
     //   primaryKey: true,
-    //   autoIncrement: true,
-    // },
+      // autoIncrement: true,
+    },
     question: {
       type: Sequelize.TEXT('long'),
     },

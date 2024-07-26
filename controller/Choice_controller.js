@@ -28,9 +28,9 @@ const addChoice = async (req, res) => {
       return res.status(404).send({ message: 'Question not found' });
     }
 
-    if (thisQuestion.qType !== 'MCQ') {
-      return res.status(400).send({ message: 'Choices can only be added to MCQ questions' });
-    }
+    // if (thisQuestion.qType !== 'MCQ') {
+    //   return res.status(400).send({ message: 'Choices can only be added to MCQ questions' });
+    // }
 
     // Count existing choices for this question
     const existingChoicesCount = await Choice.count({
